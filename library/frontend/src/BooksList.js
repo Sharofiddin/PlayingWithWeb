@@ -17,7 +17,7 @@ class BooksList extends Component {
 componentDidMount() {
     var  self  =  this;
     booksService.getBooks().then(function (result) {
-        self.setState({ books:  result.data, nextPageURL:  result.nextlink})
+                self.setState({ books:  result, nextPageURL:  result.nextlink});
     });
 }
 handleDelete(e,pk){ 
@@ -38,7 +38,6 @@ nextPage(){
 }
 
 render() {
-
     return (
     <div  className="books--list">
         <table  className="table">
@@ -49,18 +48,18 @@ render() {
                 <th>Muallifi</th>
                 <th>Nashriyot</th>
                 <th>Sahifalar soni</th>
-                <th>Qisqacha ma'lumot</th>
+                <th>Inventor raqami</th>
             </tr>
             </thead>
             <tbody>
                 {this.state.books.map( b  =>
-                <tr  key={b.pk}>
-                    <td>{b.pk}  </td>
+                <tr  key={b.id}>
+                    <td>{b.id}  </td>
                     <td>{b.name}</td>
-                    <td>{b.author}</td>
-                    <td>{b.publisher}</td>
-                    <td>{b.pages}</td>
-                    <td>{b.description}</td>
+                    <td>{b.author_id}</td>
+                    <td>{b.publisher_id}</td>
+                    <td>{b.page}</td>
+                    <td>{b.inventor_number}</td>
                     <td>
                     <button  onClick={(e)=>  this.handleDelete(e,b.pk) }> Delete</button>
                     <a  href={"/book/" + b.pk}> Update</a>
