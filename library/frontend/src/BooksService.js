@@ -2,8 +2,6 @@ import axios from 'axios';
 const API_URL = 'http://localhost:8080';
 export default class BooksService{
 
-    constructor(){}
-
     getBooks() {
         const url = `${API_URL}/api/books/`;
         return axios.get(url).then(response => response.data);

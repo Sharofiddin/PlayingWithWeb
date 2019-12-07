@@ -56,8 +56,8 @@ render() {
                 <tr  key={b.id}>
                     <td>{b.id}  </td>
                     <td>{b.name}</td>
-                    <td>{b.author_id}</td>
-                    <td>{b.publisher_id}</td>
+                    <td>{b.author.first_name + " " + b.author.last_name}</td>
+                    <td>{b.publisher.name}</td>
                     <td>{b.page}</td>
                     <td>{b.inventor_number}</td>
                     <td>
