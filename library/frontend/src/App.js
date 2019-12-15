@@ -5,7 +5,9 @@ import BooksList from "./BooksList";
 import BookCreateUpdate from './BookCreateUpdate'
 import  './App.css';
 import AuthorsList from './AuthorsList'
-import PublishersList from './PublishersList '
+import PublishersList from './PublishersList'
+import AuthorCreateUpdate from './AuthorCreateUpdate'
+import PublisherCreateUpdate from './PublisherCreateUpdate'
 
 const  BaseLayout  = () => (
   <div  className="container-fluid">
@@ -29,7 +31,9 @@ const  BaseLayout  = () => (
           <Route  path="/"  exact  component={BooksList}  />
           <Route  path="/book/"  exact  component={BookCreateUpdate}  />
           <Route  path="/authors/"  exact  component={AuthorsList}  />
+          <Route  path="/insert_author/"  exact  component={AuthorCreateUpdate}  />
           <Route  path="/publishers/"  exact  component={PublishersList}  />
+          <Route  path="/insert_publisher/"  exact  component={PublisherCreateUpdate}  />
 
       </div>
   </div>
