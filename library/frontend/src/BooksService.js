@@ -1,13 +1,13 @@
 import axios from 'axios';
 const API_URL = 'http://localhost:8080';
-export default class BooksService{
+export default class BooksService {
 
     getBooks() {
         const url = `${API_URL}/api/books/`;
         return axios.get(url).then(response => response.data);
-    }  
+    }
 
-    getBooksByURL(link){
+    getBooksByURL(link) {
         const url = `${API_URL}${link}`;
         return axios.get(url).then(response => response.data);
     }
@@ -15,16 +15,16 @@ export default class BooksService{
         const url = `${API_URL}/api/books/${pk}`;
         return axios.get(url).then(response => response.data);
     }
-    deleteBook(Book){
+    deleteBook(Book) {
         const url = `${API_URL}/api/books/${Book.pk}`;
         return axios.delete(url);
     }
-    createBook(Book){
+    createBook(Book) {
         const url = `${API_URL}/api/books/`;
-        return axios.post(url,Book);
+        return axios.post(url, Book);
     }
-    updateBook(Book){
+    updateBook(Book) {
         const url = `${API_URL}/api/books/${Book.pk}`;
-        return axios.put(url,Book);
+        return axios.put(url, Book);
     }
 }
