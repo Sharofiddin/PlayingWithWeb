@@ -39,7 +39,7 @@ nextPage(){
 
 render() {
     return (
-    <div  className="books--list">
+    <div  className="table-reponsive">
         <table  className="table">
             <thead  key="thead">
             <tr>
