@@ -1,4 +1,4 @@
-import React, {Component} from 'react';
+import React, { Component } from 'react';
 import BookService from './BooksService';
 import AuthorService from './AuthorsService'
 import PublisherSevice from './PublishersService'
@@ -7,8 +7,8 @@ const bookService = new BookService();
 const authorSevice = new AuthorService();
 const publisherService = new PublisherSevice();
 
-class BookCreateUpdate  extends Component{
-    constructor(props){
+class BookCreateUpdate extends Component {
+    constructor(props) {
         super(props);
         this.state = {
             authors :[],
@@ -23,52 +23,52 @@ class BookCreateUpdate  extends Component{
         this.handleSubmit = this.handleSubmit.bind(this);
     }
 
-handleCreate(){
-    bookService.createBook(
-        {
-        "name":  this.refs.name.value,
-        "author":  this.refs.author.id.value,
-        "publisher":  this.refs.publisher.id.value,
-        "pages":  this.refs.pages.value,
-        "description":  this.refs.description.value
-        }).then((result)=>{
+    handleCreate() {
+        bookService.createBook(
+            {
+                "name": this.refs.name.value,
+                "author": this.refs.author.value,
+                "publisher": this.refs.publisher.value,
+                "pages": this.refs.pages.value,
+                "description": this.refs.description.value
+            }).then((result) => {
+
                 alert("Kitob qo'shild!");
-        }).catch(()=>{
+            }).catch(() => {
                 alert('Kitob qo\'shishda xatolik yuz berdi.');
+            });
+    }
+
+    handleUpdate(pk) {
+        bookService.updateBook(
+            {
+                "pk": pk,
+                "name": this.refs.name.value,
+                "author": this.refs.author.value,
+                "publisher": this.refs.publisher.value,
+                "pages": this.refs.pages.value,
+                "description": this.refs.description.value
+            }
+        ).then((result) => {
+            console.log(result);
+            alert("Kitob yangilandi!");
+        }).catch(() => {
+            alert('Kitobni yangilashda xatolik yuz berdi.');
         });
-}
-
-handleUpdate(pk){
-    bookService.updateBook(
-      {
-        "pk": pk,
-        "name": this.refs.name.value,
-        "author": this.refs.author.value,
-        "publisher": this.refs.publisher.value,
-        "pages": this.refs.pages.value,
-        "description": this.refs.description.value
-    }          
-    ).then((result)=>{
-      console.log(result);
-      alert("Kitob yangilandi!");
-    }).catch(()=>{
-      alert('Kitobni yangilashda xatolik yuz berdi.');
-    });
-  }
-
-  handleSubmit(event) {
-    const { match: { params } } =  this.props;
-    if(params  &&  params.pk){
-        alert("updating");
-        this.handleUpdate(params.pk);
     }
-    else
-    {
-        alert("creating");
-        this.handleCreate();
+
+    handleSubmit(event) {
+        const { match: { params } } = this.props;
+        if (params && params.pk) {
+            alert("updating");
+            this.handleUpdate(params.pk);
+        }
+        else {
+            alert("creating");
+            this.handleCreate();
+        }
+        event.preventDefault();
     }
-    event.preventDefault();
-}
 
 render(){
     return (
@@ -96,19 +96,6 @@ render(){
                         {/* {this.buildPublisherOptions()} */}
                     </select>
                 </div>
-                <div className="form-group">
-                    <label>Sahifalar soni:</label>
-                    <input className="form-control col-xl-2 col-lg-2 col-md-3 col-sm-4 col-xs-6" type="number" ref="pages"></input>
-                </div>
-                <div className="form-group">
-                    <label>Qisqacha ma'lumot:</label>
-                    <textarea className="form-control col-xl-2 col-lg-2 col-md-3 col-sm-4 col-xs-6" ref="description"></textarea>
-                </div>
-                <input className="btn btn-primary" type="submit" value="Ok"></input>
-            </div>
-        </form>
-    )
-}
 
 buildAuthorOptions() {
     var arr = [];
@@ -133,4 +120,3 @@ buildPublisherOptions() {
 
 }
 export default BookCreateUpdate;
-
