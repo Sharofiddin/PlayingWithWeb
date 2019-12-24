@@ -39,7 +39,7 @@ nextPage() {
 
     render() {
         return (
-            <div className="books--list">
+            <div>
                 <table className="table" width="100%" cellPadding="0" cellSpacing="0" border="0">
                     <thead key="thead">
                         <tr>
@@ -68,7 +68,7 @@ nextPage() {
                     </tbody>
                 </table>
                 <button className="btn btn-primary" onClick={this.nextPage}>Next</button>
-            </div>
+                </div>
         );
     }
 }
