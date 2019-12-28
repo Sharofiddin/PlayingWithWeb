@@ -21,7 +21,7 @@ class AuthorsDropDown extends Component {
         return (
             <div className="form-group col-sm-4">
             <label>Muallif:</label>
-            <select className="form-control" ref="author">
+            <select className="form-control" onChange={(ev) => this.props.onChange(ev.target.value)}>
             {this.state.authors.map( a  => 
                     <option key={a.id} value={a}>{a.first_name + ' '+a.last_name }
                     </option>)
