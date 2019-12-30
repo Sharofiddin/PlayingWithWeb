@@ -23,7 +23,7 @@ class AuthorsDropDown extends Component {
             <label>Muallif:</label>
             <select className="form-control" onChange={(ev) => this.props.onChange(ev.target.value)}>
             {this.state.authors.map( a  => 
-                    <option key={a.id} value={a}>{a.first_name + ' '+a.last_name }
+                    <option key={a.id} value={a.id}>{a.first_name + ' '+a.last_name }
                     </option>)
             }
             </select>

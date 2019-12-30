@@ -20,7 +20,7 @@ export default class BooksService {
         return axios.delete(url);
     }
     createBook(Book) {
-        const url = `${API_URL}/api/books/`;
+        const url = `${API_URL}/api/insert_book/`;
         return axios.post(url, Book);
     }
     updateBook(Book) {

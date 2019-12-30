@@ -8,11 +8,11 @@ export default class AuthorsService {
     }
 
     getAuthor(id) {
-        const url = `${API_URL}/api/books/${id}`;
+        const url = `${API_URL}/api/authors/${id}`;
         return axios.get(url).then(response => response.data);
     }
     deleteAuthor(Author) {
-        const url = `${API_URL}/api/Authors/${Author.id}`;
+        const url = `${API_URL}/api/authors/${Author.id}`;
         return axios.delete(url);
     }
     createAuthor(Author) {

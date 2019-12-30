@@ -31,9 +31,9 @@ class PublishersDropDown extends Component {
         return (
             <div className="form-group col-sm-4">
             <label>Nashriyot:</label>
-            <select className="form-control" ref="publisher">
+            <select className="form-control" onChange={(ev) => this.props.onChange(ev.target.value)}>
             {this.state.publishers.map( p  => 
-                        <option key={p.id} value={p}>{p.name}
+                        <option key={p.id} value={p.id}>{p.name}
                         </option>)}
             </select>
             </div>

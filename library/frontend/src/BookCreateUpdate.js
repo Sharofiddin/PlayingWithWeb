@@ -21,26 +21,22 @@ class BookCreateUpdate extends Component {
     this.onChangePublisher = this.onChangePublisher.bind(this);
   }
 
-    onChangeAuthor(newAuthor){
-      alert("changing author");
-      this.setState({author:newAuthor});
-      console.log(newAuthor);
-      alert("Author : "+newAuthor.value.first_name);
+    onChangeAuthor(new_author_id){
+      this.setState({author:new_author_id});
     }
 
-    onChangePublisher(newPublisher){
-      this.setState({publisher:newPublisher});
+    onChangePublisher(new_publisher_id){
+      this.setState({publisher:new_publisher_id});
     }
 
   handleCreate() {
-    
     alert("creating a new book");
     console.log(this.refs)
     bookService
       .createBook({
         name: this.refs.name.value,
-        author: this.state.author.value,
-        publisher: this.state.publisher.value,
+        author: this.state.author,
+        publisher: this.state.publisher,
         pages: this.refs.pages.value,
         description: this.refs.description.value
       })
@@ -98,7 +94,7 @@ class BookCreateUpdate extends Component {
           </div>
           <div className="row">
             <AuthorsDropDown onChange={this.onChangeAuthor}/>
-            <PublishersDropDown onChangePublisher={this.onChangePublisher}/>
+            <PublishersDropDown onChange={this.onChangePublisher}/>
           </div>
           <div className="row">
             <div className="form-group col-sm-4">
