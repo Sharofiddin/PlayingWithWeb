@@ -12,8 +12,8 @@ class BookCreateUpdate extends Component {
     super(props);
 
     this.state = {
-      author:null,
-      publisher:null
+      author:{id:null},
+      publisher:{id:null}
     }
 
     this.handleSubmit = this.handleSubmit.bind(this);
@@ -22,22 +22,22 @@ class BookCreateUpdate extends Component {
   }
 
     onChangeAuthor(new_author_id){
-      this.setState({author:new_author_id});
+      this.setState({author:{id:new_author_id}});
     }
 
     onChangePublisher(new_publisher_id){
-      this.setState({publisher:new_publisher_id});
+      this.setState({publisher:{id:new_publisher_id}});
     }
 
   handleCreate() {
-    alert("creating a new book");
-    console.log(this.refs)
+    alert(this.state.author.id);
     bookService
       .createBook({
         name: this.refs.name.value,
         author: this.state.author,
         publisher: this.state.publisher,
-        pages: this.refs.pages.value,
+        page: this.refs.pages.value,
+        inventor_number: this.refs.inventor_number.value,
         description: this.refs.description.value
       })
       .then(result => {
@@ -53,8 +53,8 @@ class BookCreateUpdate extends Component {
       .updateBook({
         pk: pk,
         name: this.refs.name.value,
-        author: this.refs.author.value,
-        publisher: this.refs.publisher.value,
+        author: this.refs.author,
+        publisher: this.refs.publisher,
         pages: this.refs.pages.value,
         description: this.refs.description.value
       })
@@ -88,8 +88,7 @@ class BookCreateUpdate extends Component {
               <input
                 className="form-control"
                 type="text"
-                ref="name"
-              ></input>
+                ref="name"/>
             </div>
           </div>
           <div className="row">
@@ -102,17 +101,24 @@ class BookCreateUpdate extends Component {
               <input
                 className="form-control"
                 type="number"
-                ref="pages"
-              ></input>
+                ref="pages"/>
             </div>
-            <div className="form-group col-sm-4">
-              <label>Qisqacha ma'lumot:</label>
-              <textarea
+            <div className="form-group  col-sm-4">
+              <label>Invertor raqami:</label>
+              <input
                 className="form-control"
-                ref="description"
-              ></textarea>
+                type="text"
+                ref="inventor_number"/>
+             </div>
+             </div>
+            <div className="row">
+              <div className="form-group col-sm-4">
+                <label>Qisqacha ma'lumot:</label>
+                <textarea
+                  className="form-control"
+                  ref="description"/>
+              </div>
             </div>
-          </div>
             <input className="btn btn-primary" type="submit" value="ok"/>
       </form>
     );
