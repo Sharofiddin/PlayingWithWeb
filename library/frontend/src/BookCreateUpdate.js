@@ -2,6 +2,12 @@ import React, { Component } from "react";
 import BookService from "./BooksService";
 import AuthorsDropDown from "./AuthorsDropDown";
 import PublishersDropDown from "./PublishersDropDown";
+import AuthorsService from './AuthorsService'
+import PublishersService from './PublishersService'
+
+
+const publisherService = new PublishersService();
+const authorsService = new AuthorsService();
 const bookService = new BookService();
 
 
@@ -12,6 +18,8 @@ class BookCreateUpdate extends Component {
     super(props);
 
     this.state = {
+      authors:[],
+      publishers:[],
       author:{id:null},
       publisher:{id:null}
     }
@@ -21,6 +29,17 @@ class BookCreateUpdate extends Component {
     this.onChangePublisher = this.onChangePublisher.bind(this);
   }
 
+  componentDidMount(){
+        var self = this;
+        authorsService.getAuthors().then(function (result) {
+            self.setState({ authors: result,
+            author:{id:result[0].id}});});
+        publisherService.getPublishers().then( function (result){
+          self.setState({publishers: result,
+          publisher:{id:result[0].id}});
+        });
+        
+  }
     onChangeAuthor(new_author_id){
       this.setState({author:{id:new_author_id}});
     }
@@ -80,6 +99,7 @@ class BookCreateUpdate extends Component {
   }
 
   render() {
+    
     return (
       <form onSubmit={this.handleSubmit}>
           <div className="row">
@@ -92,8 +112,8 @@ class BookCreateUpdate extends Component {
             </div>
           </div>
           <div className="row">
-            <AuthorsDropDown onChange={this.onChangeAuthor}/>
-            <PublishersDropDown onChange={this.onChangePublisher}/>
+            <AuthorsDropDown onChange={this.onChangeAuthor} authors={this.state.authors}/>
+            <PublishersDropDown onChange={this.onChangePublisher} publishers={this.state.publishers}/>
           </div>
           <div className="row">
             <div className="form-group col-sm-4">

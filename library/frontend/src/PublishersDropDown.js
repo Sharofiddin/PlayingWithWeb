@@ -5,25 +5,11 @@ import PublisherssService from './PublishersService'
 const publishersService = new PublisherssService();
 
 class PublishersDropDown extends Component {
-    constructor(props) {
-        super(props);
-        this.state = {
-            publishers: []
-        };
-
-        this.nextPage = this.nextPage.bind(this);
-    }
+    
     componentDidMount() {
         var self = this;
         publishersService.getPublishers().then(function (result) {
             self.setState({ publishers: result});
-        });
-    }
-
-    nextPage() {
-        var self = this;
-        publishersService.getPublisherByURL(this.state.nextPageURL).then((result) => {
-            self.setState({ publishers: result.data})
         });
     }
 
@@ -32,7 +18,7 @@ class PublishersDropDown extends Component {
             <div className="form-group col-sm-4">
             <label>Nashriyot:</label>
             <select className="form-control" onChange={(ev) => this.props.onChange(ev.target.value)}>
-            {this.state.publishers.map( p  => 
+            {this.props.publishers.map( p  => 
                         <option key={p.id} value={p.id}>{p.name}
                         </option>)}
             </select>
