@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
-import BooksList from './BooksList';
+import BooksList from './components/BooksList';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom'
-import LoginComponent from './LoginComponent';
+import LoginComponent from './components/LoginComponent';
 import LogoutComponent from './LogoutComponent';
 import AuthenticatedRoute from './AuthenticatedRoute';
 

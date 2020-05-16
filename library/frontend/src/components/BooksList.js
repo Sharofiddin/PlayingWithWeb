@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import BooksService from './BooksService';
+import BooksService from '../service/BooksService';
 
 const booksService = new BooksService();
 
