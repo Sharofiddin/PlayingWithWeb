@@ -3,7 +3,7 @@ import BookList from './BooksList'
 class Login extends Component {
     constructor(props) {
         super(props);
-        this.state = {lgin: '', password: '', isAuthenticated: false, open: false};
+        this.state = {login: '', password: '', isAuthenticated: false, open: false};
     }
 
     render() {    

@@ -1,13 +1,11 @@
 import axios from 'axios';
 const API_URL = 'http://localhost:8080';
-const jwtToken = sessionStorage.getItem("jwt"); 
 export default class BooksService {
 
     getBooks() {
-          
+        const jwtToken = sessionStorage.getItem("jwt");  
         const url = `${API_URL}/api/books/`;
-        alert('token ' + jwtToken)
-        return axios.get(url, 
+        return axios.post(url, 
             {
                 headers:{
                 Authorization: 'Bearer ' + jwtToken 
@@ -17,6 +15,7 @@ export default class BooksService {
     }
 
     getBooksByURL(link) {
+        const jwtToken = sessionStorage.getItem("jwt"); 
         const url = `${API_URL}${link}`;
         return axios.get(url,             {
             headers:{
@@ -25,6 +24,7 @@ export default class BooksService {
         }).then(response => response.data);
     }
     getBook(pk) {
+        const jwtToken = sessionStorage.getItem("jwt"); 
         const url = `${API_URL}/api/books/${pk}`;
         return axios.get(url,             {
             headers:{
@@ -33,6 +33,7 @@ export default class BooksService {
         }).then(response => response.data);
     }
     deleteBook(Book) {
+        const jwtToken = sessionStorage.getItem("jwt"); 
         const url = `${API_URL}/api/books/${Book.pk}`;
         return axios.delete(url,             {
             headers:{
@@ -41,6 +42,7 @@ export default class BooksService {
         });
     }
     createBook(Book) {
+        const jwtToken = sessionStorage.getItem("jwt"); 
         const url = `${API_URL}/api/insert_book/`;
         return axios.post(url,            {
             headers:{
@@ -49,6 +51,7 @@ export default class BooksService {
         }, Book);
     }
     updateBook(Book) {
+        const jwtToken = sessionStorage.getItem("jwt"); 
         const url = `${API_URL}/api/books/${Book.pk}`;
         return axios.put(url,            {
             headers:{
