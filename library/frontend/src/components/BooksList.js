@@ -18,7 +18,6 @@ class BooksList extends Component {
 componentDidMount() {
         var self = this;
         booksService.getBooks().then(function (result) {
-            alert(result);
             self.setState({ books: result, nextPageURL: result.nextlink });
         });
     }
