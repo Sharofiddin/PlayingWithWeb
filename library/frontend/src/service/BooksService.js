@@ -5,7 +5,7 @@ export default class BooksService {
     getBooks() {
         const jwtToken = sessionStorage.getItem("jwt");  
         const url = `${API_URL}/api/books/`;
-        return axios.post(url, 
+        return axios.get(url, 
             {
                 headers:{
                 Authorization: 'Bearer ' + jwtToken 
