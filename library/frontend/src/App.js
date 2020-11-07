@@ -10,7 +10,7 @@ class App extends Component {
               <LoginApp />
             </div>
           );
-      
+
     }
 }
 export default App;

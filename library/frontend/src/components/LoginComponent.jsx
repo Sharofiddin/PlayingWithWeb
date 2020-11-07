@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import BookList from './BooksList'
+import HomePage from './HomePage'
 class Login extends Component {
     constructor(props) {
         super(props);
@@ -8,7 +8,7 @@ class Login extends Component {
 
     render() {    
         if (this.state.isAuthenticated === true) {    
-            return (< BookList/>)    
+            return (< HomePage/>)    
         }    
         else {    
             return (    
