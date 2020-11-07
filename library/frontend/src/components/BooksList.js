@@ -8,7 +8,7 @@ class BooksList extends Component {
         super(props);
         this.state = {
             books: [],
-            nextPagerl: ''
+            nextPageURL: ''
         };
 
         this.nextPage = this.nextPage.bind(this);
