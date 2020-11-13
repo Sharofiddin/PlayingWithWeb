@@ -1,33 +1,22 @@
-import { ProSidebar, SidebarHeader, SidebarFooter, SidebarContent, Menu, MenuItem, SubMenu } from 'react-pro-sidebar';
 import React, { Component } from 'react';
+import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
+import Navbar from './Navbar'
 import BookList from './BooksList'
-import 'react-pro-sidebar/dist/css/styles.css';
 
 class HomePage extends Component {
     render() {
         return (
             <>
-                <ProSidebar className="col-md-4">
-                    <SidebarHeader>
-                        Menu
-  </SidebarHeader>
-                    <SidebarContent>
-                        <Menu iconShape="square">
-                            <SubMenu title="Kitoblar">
-                                <MenuItem path="/books" exact component={HomePage}>Kitoblar ro'yxati
-    </MenuItem>
-                                <MenuItem>Yangi kitob qo'shish</MenuItem>
-                            </SubMenu>
-                            <SubMenu title="Talabalar">
-                                <MenuItem>Talabalar ro'yxati</MenuItem>
-                            </SubMenu>
-                        </Menu>
-                    </SidebarContent>
-                    <SidebarFooter>
-                        TIU 2011-2015
-  </SidebarFooter>
-                </ProSidebar>
-                <BookList className="col-md-8" />
+             <>
+      <Router>
+        <Navbar />
+        <Switch>
+          <Route path='/' exact component={BookList} />
+          <Route path='/books' component={BookList} />
+        </Switch>
+      </Router>
+    </>
+
             </>
         );
 

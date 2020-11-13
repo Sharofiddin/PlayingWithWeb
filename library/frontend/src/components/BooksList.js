@@ -18,6 +18,7 @@ class BooksList extends Component {
 componentDidMount() {
         var self = this;
         booksService.getBooks().then(function (result) {
+            if(result != undefined)
             self.setState({ books: result, nextPageURL: result.nextlink });
         });
     }
@@ -38,6 +39,7 @@ nextPage() {
     }
 
     render() {
+        alert(this.state.books.length);
         return (
             <div>
                 <table className="table" width="100%" cellPadding="0" cellSpacing="0" border="0">

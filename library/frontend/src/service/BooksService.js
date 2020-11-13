@@ -8,10 +8,10 @@ export default class BooksService {
         return axios.get(url, 
             {
                 headers:{
-                Authorization: 'Bearer ' + jwtToken 
+                Authorization: 'Bearer ' + jwtToken
                 }
             }
-    ).then(response => response.data);
+    ).then(response => response.data).catch(() => console.log("Can’t access " + url + " response. Blocked by browser?"));
     }
 
     getBooksByURL(link) {
