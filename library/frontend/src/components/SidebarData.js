@@ -14,7 +14,13 @@ export const SidebarData = [
     title: 'Books',
     path: '/books',
     icon: <IoIcons.IoIosPaper />,
-    cName: 'nav-text'
+    cName: 'nav-text',
+    childs:[{
+      title: 'Add book',
+      path: '/addbook',
+      icon: <IoIcons.IoIosPaper />,
+      cName: 'nav-text',
+    }]
   },
   {
     title: 'Support',

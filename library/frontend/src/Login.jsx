@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import BooksList from './components/BooksList';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom'
+import * as FaIcons from 'react-icons/fa';
 import LoginComponent from './components/LoginComponent';
 import LogoutComponent from './LogoutComponent';
 import AuthenticatedRoute from './AuthenticatedRoute';
