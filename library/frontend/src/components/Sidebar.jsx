@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { ProSidebar, Menu, MenuItem, SubMenu, SidebarHeader, SidebarContent, SidebarFooter } from 'react-pro-sidebar';
 import { Link } from 'react-router-dom';
-import { FaBook, FaGithub, FaHome, FaList } from 'react-icons/fa';
+import { FaBook, FaGithub, FaHome, FaList, FaPersonBooth, FaPlusCircle, FaPrint } from 'react-icons/fa';
 import 'react-pro-sidebar/dist/css/styles.css';
 
 class Sidebar extends Component {
@@ -22,7 +22,7 @@ class Sidebar extends Component {
                         textOverflow: 'ellipsis',
                         whiteSpace: 'nowrap',
                       }}
-                      >Header</div>
+                      >Menu</div>
                 </SidebarHeader>
                 <SidebarContent>
                 <Menu iconShape="square">
@@ -30,6 +30,25 @@ class Sidebar extends Component {
                     <SubMenu title="Kitoblar" icon={<FaBook />}>
                         <MenuItem icon={<FaList/>}>Ro'yxat
                             <Link to='/books'/>
+                        </MenuItem>
+                        <MenuItem icon={<FaPlusCircle/>}>Qo'shish
+                            <Link to='/addbook'/>
+                        </MenuItem>
+                    </SubMenu>
+                    <SubMenu title="Mualliflar" icon={<FaPersonBooth />}>
+                        <MenuItem icon={<FaList/>}>Ro'yxat
+                            <Link to='/authors'/>
+                        </MenuItem>
+                        <MenuItem icon={<FaPlusCircle/>}>Qo'shish
+                            <Link to='/addauthor'/>
+                        </MenuItem>
+                    </SubMenu>
+                    <SubMenu title="Nashriyotlar" icon={<FaPrint />}>
+                        <MenuItem icon={<FaList/>}>Ro'yxat
+                            <Link to='/publishers'/>
+                        </MenuItem>
+                        <MenuItem icon={<FaPlusCircle/>}>Qo'shish
+                            <Link to='/addpublisher'/>
                         </MenuItem>
                     </SubMenu>
                 </Menu>
@@ -43,7 +62,7 @@ class Sidebar extends Component {
           }}
         >
           <a
-            href="https://github.com/azouaoui-med/react-pro-sidebar"
+            href="https://github.com/Sharofiddin/LibraryBackend"
             target="_blank"
             className="sidebar-btn"
             rel="noopener noreferrer"

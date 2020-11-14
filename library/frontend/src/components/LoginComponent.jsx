@@ -24,7 +24,7 @@ class Login extends Component {
                         <div className="form-group">    
                             <input type="password" name="password" onChange={this.handleChange}  className="form-control" placeholder="password" />    
                         </div>    
-                             <input type="submit" name="submit" onClick={this.login}  className="btn btn-info btn-md" value="Login"/>    
+                             <input type="submit" name="submit" onClick={this.login}  className="btn btn-info btn-md" value="Kirish"/>    
                          </div>    
                         </div>    
                         </div>    

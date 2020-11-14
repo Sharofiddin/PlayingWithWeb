@@ -41,12 +41,11 @@ nextPage() {
     render() {
         return (
             <main>
-                <table className="table" width="100%" cellPadding="0" cellSpacing="0" border="0">
-                    <thead key="thead">
+                    <table className="table table-responsive">
+                    <thead key="thead" className="thead-dark">
                         <tr>
-                            <th width="2%">#</th>
-                            <th width="20%">Nomi</th>
-                            <th width="27%">Muallifi</th>
+                            <th width="40%">Nomi</th>
+                            <th width="40%">Muallifi</th>
                             <th width="20%">Nashriyot</th>
                             <th width="10%">Sahifalar soni</th>
                             <th width="10%">Inventor raqami</th>
@@ -57,7 +56,6 @@ nextPage() {
                     <tbody>
                         {this.state.books.map(b =>
                             <tr key={b.id}>
-                                <td>{b.id}  </td>
                                 <td>{b.name}</td>
                                 <td>{b.author.first_name + " " + b.author.last_name}</td>
                                 <td>{b.publisher.name}</td>
@@ -67,8 +65,8 @@ nextPage() {
                                 <td><button className="btn btn-danger" onClick={(e) => this.handleDelete(e, b.pk)}>O'chirish</button></td>
                             </tr>)}
                     </tbody>
-                </table>
-                <button className="btn btn-primary" onClick={this.nextPage}>Next</button>
+                 </table>
+               {/* <button className="btn btn-primary float-right" onClick={this.nextPage}>Keyingi sahifa</button>  */}
                 </main>
         );
     }
